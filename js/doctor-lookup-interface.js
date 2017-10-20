@@ -10,11 +10,6 @@ $(document).ready(function(){
   $(document).ajaxComplete(function(){
     $("#wait").css("display", "none");
     $(".resultsByName").show();
-    // if ($(".searchByName").submit()) {
-    //   $(".resultsByName").show();
-    // } else if ($(".searchByIssue").submit()) {
-    //   $(".resultsByIssue").show();
-    // }
   });
 
   $(".searchByName").submit(function(e){
