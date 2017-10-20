@@ -12,6 +12,6 @@ $(document).ready(function(){
     e.preventDefault();
     const medicalIssue = $("input.searchByIssue").val();
     doctorLookup.byMedicalIssue(medicalIssue);
-    $(".resultsByIssue").show();
+    $(".resultsByIssue").removeClass("hide");
   });
 });
