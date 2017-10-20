@@ -8,10 +8,10 @@ $(document).ready(function(){
     doctorLookup.byLastName(lastName);
     $(".resultsByName").removeClass("hide");
   });
-  // $(".searchByIssue").submit(function(e){
-  //   e.preventDefault();
-  //   const medicalIssue = $("input.searchByIssue").val();
-  //   doctorLookup.byMedicalIssue(medicalIssue);
-  //   $(".resultsByIssue").show();
-  // });
+  $(".searchByIssue").submit(function(e){
+    e.preventDefault();
+    const medicalIssue = $("input.searchByIssue").val();
+    doctorLookup.byMedicalIssue(medicalIssue);
+    $(".resultsByIssue").show();
+  });
 });

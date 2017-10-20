@@ -5,34 +5,12 @@ export class DoctorLookup {
   }
 
   byLastName(lastName){
-    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?last_name=` + lastName + `&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=16dc9d6f9af205b02a71b04cacdc7348`)
+    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?last_name=${lastName}&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=16dc9d6f9af205b02a71b04cacdc7348`)
     .then(function(response){
-      let doctors = response.data[1].profile.first_name;
-      console.log(doctors);
-    //   doctors.forEach(function(doctor){
-    //     let first_name = doctors.profile.first_name;
-    //     console.log(first_name);
-    //     let last_name = doctor.profile.last_name
-    //     let address = doctor.visit_address.street + doctor.visit_address.city + doctor.visit_address.state;
-    //     let phone_number = doctor.phones.number;
-    //     let website = doctor.practices.website;
-    //     let new_patients = doctor.practices.accepts_new_patients;
-    //
-    //     $('#doctorResultsByName').append(`<li><span class="line-header">First Name:</span> ${first_name}<br><span class="line-header">Last Name:</span>  ${last_name}<br> </li><span class="line-header">Address:  ${address}</span><br><span class="line-header">Phone Number: ${phone_number}</span><br><span class="line-header">Website: ${website}</span><br><span class="line-header">Taking new paitients: ${new_patients}<br></li>`);
-    //   });
-    // }).fail(function(error){
-    //   $('.errors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
-    // });
-      let first_name = response.data[1].profile.first_name
-      let last_name = response.data[1].profile.last_name
-      // let address = response.data[1].visit_address.street + response.data[1].visit_address.city + response.data[1].visit_address.state;
-      // let phone_number = response.data[1].phones.number;
-      // let website = response.data[1].practices.website;
-      // let new_patients = response.data[1].practices.accepts_new_patients;
-
-      $('#doctorResultsByName').append(`<li><span class="line-header">First Name:</span> ${first_name}<br><span class="line-header">Last Name:</span>  ${last_name}<br> </li>`);
-
-      // <span class="line-header">Address:  ${address}</span><br><span class="line-header">Phone Number: ${phone_number}</span><br><span class="line-header">Website: ${website}</span><br><span class="line-header">Taking new paitients: ${new_patients}<br></li>`);
+      alert(response.data[1].practices[0].accepts_new_patients);
+      for (var i = 0; i < response.data.length; i++) {
+			$('#doctorResultsByName').append(`<li>Name: ${response.data[i].practices[0].name}<br> Address: ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state} <br>Phone Number: ${response.data[i].practices[0].phones[0].number}<br> Website: ${response.data[i].practices[0].website}<br>Accepting New Patients: ${response.data[1].practices[0].accepts_new_patients}</li>`);
+		}
     }).fail(function(error){
       $('.errors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
     });
@@ -40,17 +18,11 @@ export class DoctorLookup {
 
 
   byMedicalIssue(medicalIssue){
-    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${`medicalIssue`}&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=16dc9d6f9af205b02a71b04cacdc7348`)
+    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${medicalIssue}&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=16dc9d6f9af205b02a71b04cacdc7348`)
     .then(function(response){
-      let doctors = response.data;
-      console.log(doctors);
-      doctors.forEach(function(doctor){
-        let address = doctor.visit_address.street + doctor.visit_address.city + doctor.visit_address.state;
-        let phone_number = doctor.phones.number;
-        let website = doctor.practices.website;
-        let new_patients = doctor.practices.accepts_new_patients;
-        $('#doctorResultsByIssue').append(`<li><span class="line-header">First Name:</span> ${doctor.profile.first_name}<br><span class="line-header">Last Name:</span>  ${doctor.profile.last_name}<br> </li><span class="line-header">Address:  ${address}</span><br><span class="line-header">Phone Number: ${phone_number}</span><br><span class="line-header">Website: ${website}</span><br><span class="line-header">Taking new paitients: ${new_patients}<br></li>`);
-      });
+      for (var i = 0; i < response.data.length; i++) {
+        $('#doctorResultsByName').append(`<li>Name: ${response.data[i].practices[0].name}<br> Address: ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state} <br>Phone Number: ${response.data[i].practices[0].phones[0].number}<br> Website: ${response.data[i].practices[0].website}<br>Accepting New Patients: ${response.data[1].practices[0].accepts_new_patients}</li>`);
+  		}
     }).fail(function(error){
       $('.errors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
     });
