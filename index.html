@@ -9,6 +9,42 @@
     <title>Doctor Lookup</title>
   </head>
   <body>
-
+    <div class="jumbotron">
+      <h1>Doctor <img src="img/med.png" alt=""> Finder</h1>
+    </div>
+    <div class="container">
+      <div class="errors"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <form class="searchByName">
+            <div class="form-group">
+              <h3>Search by Doctor's Last Name:</h3>
+              <input type="text" class="form-control searchByName" placeholder="Snitzer" required>
+              <button type="submit" id="nameSearch" class="btn">Search</button>
+            </div>
+          </form>
+          <div class="resultsByName hide">
+            <h4>Doctors by name:</h4>
+            <ul id="doctorResultsByName">
+              <li>HI</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form class="searchByIssue">
+            <div class="form-group">
+            <h3>Search by medical issue:</h3>
+            <input type="text" class="form-control amount" placeholder="Rash" required>
+            <button type="submit" id="nameSearch" class="btn">Search</button>
+          </form>
+          <div class="resultsByIssue hide">
+            <h4>Doctors by name:</h4>
+            <ul id="doctorResultsByIssue">
+              <li>hI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
