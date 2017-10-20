@@ -2,6 +2,21 @@ import { DoctorLookup } from './../js/doctor-lookup.js';
 
 $(document).ready(function(){
   let doctorLookup = new DoctorLookup();
+
+  $(document).ajaxStart(function(){
+    $("#wait").css("display", "block");
+  });
+
+  $(document).ajaxComplete(function(){
+    $("#wait").css("display", "none");
+    $(".resultsByName").show();
+    // if ($(".searchByName").submit()) {
+    //   $(".resultsByName").show();
+    // } else if ($(".searchByIssue").submit()) {
+    //   $(".resultsByIssue").show();
+    // }
+  });
+
   $(".searchByName").submit(function(e){
     e.preventDefault();
     const lastName = $("input.searchByName").val();
