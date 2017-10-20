@@ -6,12 +6,12 @@ $(document).ready(function(){
     e.preventDefault();
     const lastName = $("input.searchByName").val();
     doctorLookup.byLastName(lastName);
-    $(".resultsByName").show();
+    $(".resultsByName").removeClass("hide");
   });
-  $(".searchByIssue").submit(function(e){
-    e.preventDefault();
-    const medicalIssue = $("input.searchByIssue").val();
-    doctorLookup.byMedicalIssue(medicalIssue);
-    $(".resultsByIssue").show();
-  });
+  // $(".searchByIssue").submit(function(e){
+  //   e.preventDefault();
+  //   const medicalIssue = $("input.searchByIssue").val();
+  //   doctorLookup.byMedicalIssue(medicalIssue);
+  //   $(".resultsByIssue").show();
+  // });
 });
