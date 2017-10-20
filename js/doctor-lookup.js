@@ -11,8 +11,13 @@ export class DoctorLookup {
         $('#doctorResultsByIssue').append("There are no doctor's in this area that match with your search.")
       }
       for (var i = 0; i < response.data.length; i++) {
-  			$('#doctorResultsByName').append(`<li>Name: ${response.data[i].practices[0].name}<br> Address: ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state} <br>Phone Number: ${response.data[i].practices[0].phones[0].number}<br> Website: ${response.data[i].practices[0].website}<br>Accepting New Patients: ${response.data[1].practices[0].accepts_new_patients}</li>`);
-		   }
+  			$('#doctorResultsByName').append(`<li>
+          <span class="bold">Name: </span>${response.data[i].practices[0].name}<br>
+          <span class="bold"> Address:</span> ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state}<br>
+          <span class="bold">Phone Number: </span>${response.data[i].practices[0].phones[0].number}<br>
+          <span class="bold">Accepting New Patients:</span> ${response.data[1].practices[0].accepts_new_patients}
+          <span class="bold">Website:</span> ${response.data[i].practices[0].website}<br>
+          </li>`);
     }).fail(function(error){
       $('.errors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
     });
@@ -25,7 +30,13 @@ export class DoctorLookup {
         $('#doctorResultsByIssue').append("There are no doctor's in this area that match with your search.")
       }
       for (var i = 0; i < response.data.length; i++) {
-  			$('#doctorResultsByIssue').append(`<li>Name: ${response.data[i].profile.first_name} ${response.data[i].profile.last_name}<br> Address: ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state} <br>Phone Number: ${response.data[i].practices[0].phones[0].number}<br>Accepting New Patients: ${response.data[i].practices[0].accepts_new_patients}<br>Website: ${response.data[i].practices[0].website}</li>`);
+  			$('#doctorResultsByIssue').append(`<li>
+          <span class="bold">Name: </span>${response.data[i].profile.first_name} ${response.data[i].profile.last_name}<br>
+          <span class="bold">Address:</span> ${response.data[i].practices[0].visit_address.city},${response.data[i].practices[0].visit_address.state} <br>
+          <span class="bold">Phone Number: </span>${response.data[i].practices[0].phones[0].number}<br>
+          <span class="bold">Accepting New Patients: </span>${response.data[i].practices[0].accepts_new_patients}<br>
+          <span class="bold">Website:</span> ${response.data[i].practices[0].website}
+          </li>`);
 		   }
     }).fail(function(error){
       $('.errors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);

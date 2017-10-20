@@ -1,3 +1,16 @@
 .jumbotron {
   text-align: center;
 }
+
+body {
+  background-color: #80bfa8;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #eee;
+}
