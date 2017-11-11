@@ -1,6 +1,6 @@
 # _Doctor Lookup_
 
-
+![img](https://raw.githubusercontent.com/MegOlson/doctor-lookup/master/doctor.png)
 
 #### _Doctor Lookup: Epicodus exercise, 10.20.2017_
 
